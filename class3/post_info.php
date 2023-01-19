@@ -6,38 +6,37 @@
 
     <body>
     <?php
+        function info($stdId,$name,$sex)
+        {
+            echo "<b>ข้อมูลผู้ใช้ใส่มา </b><br>";
+            echo "ID : <i> $stdId </i> <br>";
+            echo "Name : <i> $name </i> <br>";
+            echo "Sex : <i> $sex </i> <br>";
+        }
+        function interest($hobbie,$color)
+        {
+            for($i=0;$i<count($hobbie);$i++)
+            {
+                if(trim($hobbie[$i])!="")
+            {
+                echo "Hobbie : ".$hobbie[$i]."<br>"; 
+            }
+            }
+
+            for($i=0;$i<count($color);$i++)
+            {
+                if(trim($color[$i])!="")
+            {
+                echo "Color : ".$color[$i]."<br>"; 
+            }
+            }
+        }
         $id = $_POST['id'];
         $nameSurename = $_POST['nameSurename'];
         $sex = $_POST['sex'];
 
-
-        echo "<b>ข้อมูลผู้ใช้ใส่มา </b><br>";
-        echo "ID : <i> $id </i> <br>";
-        echo "Name : <i> $nameSurename </i> <br>";
-        echo "Sex : <i> $sex </i> <br>";
-        echo "Hobbie : ";
-        if(!empty($_POST["chk1"]))
-        {
-            echo $_POST["chk1"];
-        }
-        if(!empty($_POST["chk2"]))
-        {
-            echo ", ".$_POST["chk2"];
-        }
-        if(!empty($_POST["chk3"]))
-        {
-            echo ", ".$_POST["chk3"];
-        }
-        echo "<br>";
-
-        for($i=0;$i<count($_POST["chkcolor"]);$i++)
-        {
-                if(trim($_POST["chkcolor"][$i])!="")
-            {
-                echo "chkcolor $i = ".$_POST["chkcolor"][$i]."<br>"; 
-            }
-        }
-        echo "<br>";
+        info($id,$nameSurename,$sex);
+        interest($_POST["chkhob"],$_POST["chkcolor"]);
         ?>
     <a href='dropListBox.php'> Back </a>    
     </body>
