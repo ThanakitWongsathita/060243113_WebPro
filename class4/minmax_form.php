@@ -15,7 +15,7 @@
                 <td>Enter Number 2 : </td>
                 <td><input type="text" name="number2" size="15" value=""/></td>
                 </tr>
-                <td>Enter Number 1 : </td>
+                <td>Enter Number 3 : </td>
                 <td><input type="text" name="number3" size="15" value=""/> </td>
                 </tr>
                 <tr>

@@ -24,7 +24,7 @@
         //else
         //{
         ?>
-        <form action="txtInfo.php" method="post" name="form2" id="form2">
+        <form action="txtArea.php" method="post" name="form2" id="form2">
             Username : <input type="text" maxlength="10" name="uname"><br> <br>
             Password : <input type="password" maxlength="6" name="pass"><br> <br>
             ความคิดเห็น : <textarea cols="40" rows="5" name="comment"></textarea><br>
