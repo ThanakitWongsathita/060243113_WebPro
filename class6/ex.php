@@ -34,16 +34,16 @@
             </tr>
             <tr>
                 <td>ที่อยู่ :</td> 
-                <td><textarea required cols="40" rows="4" name="live">
+                <td><textarea cols="40" rows="4" required name="live">
                 </textarea><font color="red"></font>
                 </td>
             </tr>
             <tr>
-                <td>อีเมล : </td>
+                <td>อีเมล :</td>
                 <td><input type="text" name="email"></td>
             </tr>
             <tr>
-                <td>หมายเลขโทรศัพท์ : </td>
+                <td>หมายเลขโทรศัพท์ :</td>
                 <td><input type="text" maxlength="10" minlength="10" name="telNum" ></td>
             </tr>
             </table>
