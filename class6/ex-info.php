@@ -7,7 +7,7 @@
     <body>
     <?php
         function info($user,$place,$mail,$tel)
-           {
+        {
             echo "<b>ข้อมูลผู้ใช้ใส่มา </b><br>";
             echo "ชื่อขนามสกุล : <i> $user </i> <br>";
             echo "ที่อยู่ : <i> $place </i> <br>";
@@ -26,7 +26,7 @@
             echo"<script>alert('Please input all info'); history.back();</script>";
             exit();
         }
-        elseif(!preg_match("/^[กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรฤลฦวศษสหฬอฮๅะาิีึืุูเแัโำํใไ่็๊๋็a-zA-Z ]+$/",$user))
+        elseif(!preg_match("/^[กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรฤลฦวศษสหฬอฮๅะาิีึืุูเแัโำํใไ่็๊๋็์a-zA-Z ]+$/",$user))
         {
             echo"<script>alert('Name is character only'); history.back();</script>";
             exit();
@@ -65,6 +65,6 @@
         echo'<br><br><h2>Insert customer name'.$user.'complete</h2>';
         echo'</center>';
     ?>
-    <a href='ex.php'> Back </a>
+    <a href='customerList.php'> Back </a>
     </body>
 </html>

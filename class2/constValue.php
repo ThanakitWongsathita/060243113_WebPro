@@ -1,4 +1,4 @@
-<html>
+s<html>
 <head><title>แสดงการสร้างและใช้งานค่าคงที่</title></head>
 <body>
 <font size="3">
