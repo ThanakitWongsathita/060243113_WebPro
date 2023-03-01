@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>โปรแกรมรับค่าจากฟอร์มแบบ POST</title>
+        <title> Input success </title>
         <link rel="stylesheet" type="text/css">
     </head>
 
@@ -8,11 +8,11 @@
     <?php
         function info($user,$place,$mail,$tel)
         {
-            echo "<b>ข้อมูลผู้ใช้ใส่มา </b><br>";
-            echo "ชื่อขนามสกุล : <i> $user </i> <br>";
-            echo "ที่อยู่ : <i> $place </i> <br>";
-            echo "อีเมล : <i> $mail </i> <br>";
-            echo "เบอร์โทร : <i> $tel </i> <br>";
+            echo "<b>Input info </b><br>";
+            echo "Name-Surname : <i> $user </i> <br>";
+            echo "Adress : <i> $place </i> <br>";
+            echo "Email : <i> $mail </i> <br>";
+            echo "Tel.phone : <i> $tel </i> <br>";
         }
         
         $user = $_POST['uName'];

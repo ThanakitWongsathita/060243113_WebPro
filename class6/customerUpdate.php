@@ -1,50 +1,62 @@
 <html>
     <head>
-        <title> การสร้างฟอร์ม </title>
+        <title> Edit customer </title>
         <link rel="stylesheet" type="text/css">
     </head>
 
     <body>
         <?php
-        /*if (isset($_POST['submit']))
-        {
-            function info($name,$pass,$comm)
+            $customerId=$_REQUEST['customerId'];
+            $hostName="localhost";
+            $userName="root";
+            $password="";
+            $dbName="bookstore";
+            $conn=mysqli_connect($hostName,$userName,$password);
+            echo'<center>';
+            if(!$conn)
             {
-                echo "<b>ข้อมูลผู้ใช้ใส่มา </b><br>";
-                echo "ID : <i> $name </i> <br>";
-                echo "Name : <i> $pass </i> <br>";
-                echo "Sex : <i> $comm </i> <br>";
+                die("Can't connect mySQL");
             }
-            
-            $user = $_POST['uname'];
-            $password = $_POST['pass'];
-            $comment = $_POST['comment'];
-            info($user,$password,$comment);
-        }*/
-        //else
-        //{
+            mysqli_select_db($conn,$dbName) or die("Can't slelct bookstore database");
+
+            mysqli_query($conn,"set character_set_connection=utf8mb4");
+            mysqli_query($conn,"set character_set_client=utf8mb4");
+            mysqli_query($conn,"set character_set_results=utf8mb4");
+
+            $sql="select * from customer WHERE customerId = '$customerId'";
+            $dbQuery=mysqli_query($conn,$sql);
+
+            if(!$dbQuery)
+            {
+                die("Select data error".mysqli_error());
+            }
+            $result=mysqli_fetch_object($dbQuery);
         ?>
-        <form action="ex-info.php" method="post" name="form2" id="form2">
+
+        <form action="customerEditInfo.php" method="post" name="form2" id="form2">
             <table border="2" bordercolor="black" width="60%" height="170" align="center">
-            <caption>เพิ่มข้อมูลลูกค้า</caption>
+            <caption>Edit customer</caption>
             <tr><td colspan="2"><font color="red">* require field</font></th></tr>
             <tr>
-                <td>ชื่อ-นามสกุล :</td>
-                <td><input type="text" name="uName"></td>
+                <td>Id :</td>
+                <td><input type="text" name="customerId" value="<?php echo $result->customerId ?>" readonly></td>
             </tr>
             <tr>
-                <td>ที่อยู่ :</td> 
-                <td><textarea cols="40" rows="4" required name="live">
-                </textarea><font color="red"></font>
+                <td>Name-Surename :</td>
+                <td><input type="text" name="uName" value="<?php echo $result->customerName ?>"/></td>
+            </tr>
+            <tr>
+                <td>Adress :</td> 
+                <td><textarea name="live" cols="55" rows="5" required><?php echo $result->customerAddress ?></textarea>
                 </td>
             </tr>
             <tr>
-                <td>อีเมล :</td>
-                <td><input type="text" name="email"></td>
+                <td>Email :</td>
+                <td><input type="text" name="email" value="<?php echo $result->customerEmail ?>"></td>
             </tr>
             <tr>
-                <td>หมายเลขโทรศัพท์ :</td>
-                <td><input type="text" maxlength="10" minlength="10" name="telNum" ></td>
+                <td>Tel.phone :</td>
+                <td><input type="text" maxlength="10" minlength="10" name="telNum" value="<?php echo $result->customerTelephone ?>"></td>
             </tr>
             </table>
             <center>
@@ -52,8 +64,5 @@
             <input type="reset" name="reset" value="reset" />
             </center>
         </form>
-        <?php
-        //}
-        ?>
     </body>
 </html>
